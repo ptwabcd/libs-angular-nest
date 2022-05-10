@@ -1,0 +1,24 @@
+$colors: (white, black, brown, gray, lightgray, cadetblue, red, blue); // Adjust this to include the pixel amounts you need.
+
+@each $color in $colors {
+  .cl-#{'' +$color} {
+    color: $color !important;
+  }
+  .bg-#{'' + $color} {
+    background: $color !important;
+  }
+}
+
+.cl-lightgrey {
+  color: #D7D7D7 !important;
+}
+.bg-lightgrey {
+  background: #D7D7D7 !important;
+}
+
+.cl-lightgrey-2 {
+  color: #F6F6F6 !important;
+}
+.bg-lightgrey-2 {
+  background: #F6F6F6 !important;
+}

@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/sw/mat",
+  "sourceRoot": "libs/sw/mat/src",
+  "prefix": "full-stack",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/sw/mat"],
+      "options": {
+        "project": "libs/sw/mat/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/sw/mat/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/sw/mat/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/sw/mat"],
+      "options": {
+        "jestConfig": "libs/sw/mat/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/sw/mat/src/**/*.ts",
+          "libs/sw/mat/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

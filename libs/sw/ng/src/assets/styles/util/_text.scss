@@ -1,0 +1,25 @@
+$sizes: (0, 4, 8, 12, 16, 18, 22, 20, 24, 28, 32, 40, 48, 60, 72, 80); // Adjust this to include the pixel amounts you need.
+@each $size in $sizes {
+  .f-s-#{$size} {
+    font-size: #{$size}px !important;
+  }
+
+  mat-icon.f-s-#{$size} {
+    font-size: #{$size}px !important;
+    width: #{$size}px !important;
+    height: #{$size}px !important;
+  }
+}
+
+.text-bold {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.text-white {
+  color: white !important;
+}
