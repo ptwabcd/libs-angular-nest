@@ -4,6 +4,9 @@
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "strictNullChecks": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -15,7 +18,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@full-stack/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@full-stack/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "sw-common": ["libs/sw/common/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

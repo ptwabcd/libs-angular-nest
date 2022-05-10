@@ -1,0 +1,10 @@
+hr.horizontal-line {
+  height: 2px;
+  border-width: 0;
+  width: 100%;
+}
+
+div.dashed-line {
+  height:2px;
+  background: repeating-linear-gradient(to right,gray 0,gray 8px,transparent 10px,transparent 16px)
+}

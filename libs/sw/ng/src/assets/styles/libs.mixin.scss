@@ -1,0 +1,61 @@
+@mixin libs-underline-table-attr($width) {
+  font-size: 18px;
+  div {
+    border-bottom: $line-grey 1px solid;
+    display: flex;
+    span:first-child {
+      min-width: $width;
+      text-align: end;
+      margin-right: $space-2;
+    }
+  }
+}
+
+
+@mixin breakpoint($point) {
+  $xs: 600px !default;
+  $sm: 960px !default;
+  $md: 1280px !default;
+  $lg: 1920px !default;
+
+  @if $point == 'xs-max' {
+    @media (max-width: #{$xs}) {
+      @content;
+    }
+  }
+  @if $point == 'xs-min' {
+    @media (min-width: #{$xs}) {
+      @content;
+    }
+  }
+  @if $point == 'sm-max' {
+    @media (max-width: #{($sm - 1)}) {
+      @content;
+    }
+  }
+  @if $point == 'sm-min' {
+    @media (min-width: #{$sm}) {
+      @content;
+    }
+  }
+  @if $point == 'md-max' {
+    @media (max-width: #{$md}) {
+      @content;
+    }
+  }
+  @if $point == 'md-min' {
+    @media (min-width: #{($md + 1)}) {
+      @content;
+    }
+  }
+  @if $point == 'lg-max' {
+    @media (max-width: #{$lg}) {
+      @content;
+    }
+  }
+  @if $point == 'lg-min' {
+    @media (min-width: #{$lg}) {
+      @content;
+    }
+  }
+}

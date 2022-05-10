@@ -1,0 +1,52 @@
+$spaceAmounts: (0, 2, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 48, 60, 80); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceAmounts {
+
+  .m-#{$space} {
+    margin: #{$space}px !important;
+  }
+
+  .p-#{$space} {
+    padding: #{$space}px !important;
+  }
+
+  .m-tb-#{$space} {
+    margin-top: #{$space}px !important;
+    margin-bottom: #{$space}px !important;
+  }
+
+  .m-rl-#{$space} {
+    margin-right: #{$space}px !important;
+    margin-left: #{$space}px !important;
+  }
+
+  .p-tb-#{$space} {
+    padding-top: #{$space}px !important;
+    padding-bottom: #{$space}px !important;
+  }
+
+  .p-rl-#{$space} {
+    padding-right: #{$space}px !important;
+    padding-left: #{$space}px !important;
+  }
+
+  .l-s-#{$space} {
+    letter-spacing: #{$space}px !important;
+    margin-right: -#{$space}px;
+  }
+
+  .l-h-#{$space} {
+    line-height: #{$space}px !important;
+  }
+
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}

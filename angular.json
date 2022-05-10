@@ -4,6 +4,10 @@
     "api": "apps/api",
     "api-interfaces": "libs/api-interfaces",
     "frontend": "apps/frontend",
-    "frontend-e2e": "apps/frontend-e2e"
+    "frontend-e2e": "apps/frontend-e2e",
+    "sw-common": "libs/sw/common",
+    "sw-mat": "libs/sw/mat",
+    "sw-nest": "libs/sw/nest",
+    "sw-ng": "libs/sw/ng"
   }
 }
