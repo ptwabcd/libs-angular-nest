@@ -1,1 +1,1 @@
-export * from './server-path.pipe';
+export * from './sw-server-path.pipe';

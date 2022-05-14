@@ -19,7 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@full-stack/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "sw-common": ["libs/sw/common/src/index.ts"]
+      "sw-common": ["libs/sw/common/src/index.ts"],
+      "sw-ng": ["libs/sw/ng/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

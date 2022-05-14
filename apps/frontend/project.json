@@ -13,9 +13,20 @@
         "main": "apps/frontend/src/main.ts",
         "polyfills": "apps/frontend/src/polyfills.ts",
         "tsConfig": "apps/frontend/tsconfig.app.json",
-        "assets": ["apps/frontend/src/favicon.ico", "apps/frontend/src/assets"],
+        "assets": [
+          "apps/frontend/src/favicon.ico",
+          "apps/frontend/src/assets",
+          {
+            "glob": "**/*",
+            "input": "libs/sw/ng/src/assets",
+            "output": "./libs/sw/ng/src/assets"
+          }
+        ],
         "styles": ["apps/frontend/src/styles.css"],
-        "scripts": []
+        "scripts": [],
+        "allowedCommonJsDependencies": [
+          "exceljs"
+        ]
       },
       "configurations": {
         "production": {

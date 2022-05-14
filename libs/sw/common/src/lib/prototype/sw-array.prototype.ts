@@ -1,3 +1,3 @@
-interface Array<T> {
+export interface Array<T> {
     groupBy(o: T): Array<T>;
 }

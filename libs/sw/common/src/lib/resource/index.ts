@@ -1,3 +1,5 @@
+export * from './enums';
+export * from './interface';
 export * from './sw-base-date-request';
 export * from './sw-base-filter-request';
 export * from './sw-common-request';

@@ -1,0 +1,101 @@
+{
+  "WEBSITE_TITLE": "动动脑360儿童天地",
+  "DO_YOU_WANT_TO_QUIT_THE_GAME": "请问是否要退出游戏",
+  "TESTER": "测验者",
+  "PLEASE_TURN_THE_SCREEN_BACK_TO_LANDSCAPE": "请将萤幕转至横向",
+  "ARE_YOU_SURE_TO_CHOOSE_THIS_ANSWER": "确认选择此答案吗?",
+  "CONGRATULATIONS_ON_YOUR_ANSWER": "恭喜您答对了",
+  "WRONG_ANSWER": "答错喽",
+  "SELECT_THE_SAME_PATTERN": "选出相同图形",
+  "CONGRATULATIONS_ON_GET_COIN": "恭喜您获得<img src='./assets/images/coin.png' width='50px' style='margin: 0 10px'> x {{coin}}",
+  "UNFORTUNATELY_DIDNT_GET_COIN": "很遗憾，没有获得任何<img src='./assets/images/coin.png' width='50px' style='margin: 0 10px'>",
+  "CONGRATULATIONS_ON_GET_SCORE": "恭喜您获得{{coin}}分",
+  "UNFORTUNATELY_DIDNT_GET_SCORE": "很遗憾，没有获得任何分数",
+  "SUBMIT": "送出",
+  "START": "开始测验",
+  "CAN_LEVEL_UP": "恭喜您答对全部的题目，可以前往下一个等级再作答一次!",
+  "JUPITER": {
+    "LV1": {
+      "TITLE": "请问苹果上缺少什么数字?"
+    },
+    "LV2": {
+      "TITLE": "请算出答案。"
+    },
+    "LV3": {
+      "TITLE": "请点选下列苹果，让这些苹果加起来等于"
+    },
+    "LV4": {
+      "TITLE": "请算出答案。"
+    }
+  },
+  "VENUS": {
+    "LV1": {
+      "TITLE": "请选出与下方相同的图形"
+    },
+    "LV2": {
+      "TITLE": "请将苹果给正确的动物"
+    },
+    "LV3": {
+      "TITLE": "请问<img src='./assets/images/fruit4.png' width='40px' style='margin: 0 10px'>在什么水果的{{direction}}方"
+    },
+    "LV4": {
+      "TITLE": "请计算A与B各为多少"
+    }
+  },
+  "MERCURY": {
+    "LV1": {
+      "TITLE": "请按照数字接下去"
+    },
+    "LV2": {
+      "TITLE": "请依照图片接续下去"
+    },
+    "LV3": {
+      "TITLE": "点取下列数字，使之合为"
+    },
+    "LV4": {
+      "TITLE": "请使下列算式成立"
+    }
+  },
+  "MARS": {
+    "LV1": {
+      "TITLE": "请注意动画中投入的硬币数量"
+    },
+    "LV2": {
+      "TITLE": "请计算圆圈中的硬币金额"
+    },
+    "LV3": {
+      "TITLE": "待一个杯子消失后，加总剩余的两个杯子中的豆子数量"
+    },
+    "LV4": {
+      "TITLE": "请拖曳两个选项至右边框框中，并使其平衡"
+    }
+  },
+  "SATURN": {
+    "LV1": {
+      "TITLE": "请选出与左侧相同颜色及形状的图形"
+    },
+    "LV2": {
+      "TITLE": "请用右边的三角色拼出白色的形状"
+    },
+    "LV3": {
+      "TITLE": "请用右边的三角色拼出白色的形状"
+    },
+    "LV4": {
+      "TITLE": "请用右边的三角色拼出白色的形状"
+    }
+  },
+  "TEST_RESULT": "测验结果",
+  "GET_TOTAL": "共取得",
+  "SUGGEST_CLASSROOM": "建议班级",
+  "TEST_NOT_FINISH": "测验尚未结束",
+  "RETURN_TEST": "返回测验",
+  "IDENTITY": "身份",
+  "OPERATE": "操作",
+  "VIEW": "检视",
+  "PLEASE_ENTER_NAME_SEARCH_USER": "请输入姓名搜寻使用者",
+  "TAIWAN": "台湾-台北",
+  "CHINESE": "中国-上海",
+  "ALL": "全部",
+  "VIEW_USER_DATA": "检视使用者资料",
+  "MONEY_DETAIL": "金币明细"
+}

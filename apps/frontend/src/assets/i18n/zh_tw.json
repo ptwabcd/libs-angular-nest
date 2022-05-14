@@ -1,0 +1,101 @@
+{
+  "WEBSITE_TITLE": "動動腦360兒童天地",
+  "DO_YOU_WANT_TO_QUIT_THE_GAME": "請問是否要退出遊戲",
+  "TESTER": "測驗者",
+  "PLEASE_TURN_THE_SCREEN_BACK_TO_LANDSCAPE": "請將螢幕轉至橫向",
+  "ARE_YOU_SURE_TO_CHOOSE_THIS_ANSWER": "確認選擇此答案嗎?",
+  "CONGRATULATIONS_ON_YOUR_ANSWER": "恭喜您答對了",
+  "WRONG_ANSWER": "答錯嘍",
+  "SELECT_THE_SAME_PATTERN": "選出相同圖形",
+  "CONGRATULATIONS_ON_GET_COIN": "恭喜您獲得<img src='./assets/images/coin.png' width='50px' style='margin: 0 10px'> x {{coin}}",
+  "UNFORTUNATELY_DIDNT_GET_COIN": "很遺憾，沒有獲得任何<img src='./assets/images/coin.png' width='50px' style='margin: 0 10px'>",
+  "CONGRATULATIONS_ON_GET_SCORE": "恭喜您獲得{{coin}}分",
+  "UNFORTUNATELY_DIDNT_GET_SCORE": "很遺憾，沒有獲得任何分數",
+  "SUBMIT": "送出",
+  "START": "開始測驗",
+  "CAN_LEVEL_UP": "恭喜您答對全部的題目，可以前往下一個等級再作答一次!",
+  "JUPITER": {
+    "LV1": {
+      "TITLE": "請問蘋果上缺少什麼數字?"
+    },
+    "LV2": {
+      "TITLE": "請算出答案。"
+    },
+    "LV3": {
+      "TITLE": "請點選下列蘋果，讓這些蘋果加起來等於"
+    },
+    "LV4": {
+      "TITLE": "請算出答案。"
+    }
+  },
+  "VENUS": {
+    "LV1": {
+      "TITLE": "請選出與下方相同的圖形"
+    },
+    "LV2": {
+      "TITLE": "請將蘋果給正確的動物"
+    },
+    "LV3": {
+      "TITLE":"請問<img src='./assets/images/fruit4.png' width='40px' style='margin: 0 10px'>在什麼水果的{{direction}}方"
+    },
+    "LV4": {
+      "TITLE":"請計算A與B各為多少"
+    }
+  },
+  "MERCURY": {
+    "LV1": {
+      "TITLE": "請按照數字接下去"
+    },
+    "LV2": {
+      "TITLE": "請依照圖片接續下去"
+    },
+    "LV3": {
+      "TITLE": "點取下列數字，使之合為"
+    },
+    "LV4": {
+      "TITLE": "請使下列算式成立"
+    }
+  },
+  "MARS": {
+    "LV1": {
+      "TITLE": "請注意動畫中投入的硬幣數量"
+    },
+    "LV2": {
+      "TITLE": "請計算圓圈中的硬幣金額"
+    },
+    "LV3": {
+      "TITLE": "待一個杯子消失後，加總剩餘的兩個杯子中的豆子數量"
+    },
+    "LV4": {
+      "TITLE": "請拖曳兩個選項至右邊框框中，並使其平衡"
+    }
+  },
+  "SATURN": {
+    "LV1": {
+      "TITLE": "請選出與左側相同顏色及形狀的圖形"
+    },
+    "LV2": {
+      "TITLE": "請用右邊的三角色拼出白色的形狀"
+    },
+    "LV3": {
+      "TITLE": "請用右邊的三角色拼出白色的形狀"
+    },
+    "LV4": {
+      "TITLE": "請用右邊的三角色拼出白色的形狀"
+    }
+  },
+  "TEST_RESULT": "測驗結果",
+  "GET_TOTAL": "共取得",
+  "SUGGEST_CLASSROOM": "建議班級",
+  "TEST_NOT_FINISH": "測驗尚未結束",
+  "RETURN_TEST": "返回測驗",
+  "IDENTITY": "身份",
+  "OPERATE": "操作",
+  "VIEW": "檢視",
+  "PLEASE_ENTER_NAME_SEARCH_USER": "請輸入姓名搜尋使用者",
+  "TAIWAN": "台灣-台北",
+  "CHINESE": "中國-上海",
+  "ALL": "全部",
+  "VIEW_USER_DATA": "檢視使用者資料",
+  "MONEY_DETAIL": "金幣明細"
+}

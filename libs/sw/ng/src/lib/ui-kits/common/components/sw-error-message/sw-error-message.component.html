@@ -1,0 +1,17 @@
+<ng-container *ngIf="(control.errors | swObjToKeys).length > 0">
+
+  <ng-container  [ngSwitch]="(control.errors | swObjToKeys)[0]">
+    <ng-container *ngSwitchCase="'required'">
+      <span>{{ requiredText }}</span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'email'">
+      <span>{{ emailText }}</span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'enNumber'">
+      <span>{{ enNumberText }}</span>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+
+

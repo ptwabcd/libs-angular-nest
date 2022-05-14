@@ -1,0 +1,16 @@
+<ng-container *ngIf="!resolved; else showContent;">
+  <div class="card" fxLayoutAlign="center center">
+    <ngx-loading [show]="!resolved"></ngx-loading>
+    <ng-container *ngIf="error; else loading;">
+      <p>{{ 'SYSTEM_ERROR_PLEASE_REFRESH_AND_TRY_AGAIN' | translate }}</p>
+    </ng-container>
+    <ng-template #loading>
+      <p>{{ 'DATA_LOADING_PLEASE_WAIT' | translate }}</p>
+    </ng-template>
+  </div>
+</ng-container>
+
+<ng-template #showContent>
+  <ng-content></ng-content>
+</ng-template>
+

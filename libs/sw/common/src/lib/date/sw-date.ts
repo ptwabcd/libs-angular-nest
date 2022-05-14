@@ -1,5 +1,7 @@
 import * as moment from 'moment';
+import Diff = moment.unitOfTime.Diff;
 import { unitOfTime } from 'moment';
+import { TimeRange } from './sw-time-trange';
 
 export class SwDate {
 
@@ -12,12 +14,16 @@ export class SwDate {
   SECOND_FORMAT = 'ss';
   YEAR_MONTH_FORMAT = `${this.YEAR_FORMAT}/${this.MONTH_FORMAT}`;
   DATE_FORMAT = `${this.YEAR_FORMAT}/${this.MONTH_FORMAT}/${this.DAY_FORMAT}`;
-  TIME_FORMAT_SHORT = `${this.HOUR_FORMAT}:${this.MINUTE_FORMAT}`;
-  TIME_FORMAT = `${this.TIME_FORMAT_SHORT}:${this.SECOND_FORMAT}`;
+  HOUR_MINUTE_FORMAT = `${this.HOUR_FORMAT}:${this.MINUTE_FORMAT}`;
+  TIME_FORMAT = `${this.HOUR_MINUTE_FORMAT}:${this.SECOND_FORMAT}`;
   DATETIME_FORMAT = `${this.DATE_FORMAT} ${this.TIME_FORMAT}`;
   DATE_STRING = `${this.YEAR_FORMAT}${this.MONTH_FORMAT}${this.DAY_FORMAT}`;
   DATETIME_STRING = `${this.DATE_STRING}${this.HOUR_FORMAT}${this.MINUTE_FORMAT}${this.SECOND_FORMAT}`;
   CHINESE_FORMAT = `YYYY年${this.MONTH_FORMAT}月${this.DAY_FORMAT}日`;
+
+  format(date = new Date(), format) {
+    moment(date).format(format);
+  }
 
   covertDate(date: string | Date) {
     return typeof date === 'string' ? new Date(date) : date;
@@ -48,7 +54,7 @@ export class SwDate {
   }
 
   getTime(date = new Date(), isShort = false): string {
-    return moment(date).format(isShort ? this.TIME_FORMAT_SHORT : this.TIME_FORMAT);
+    return moment(date).format(isShort ? this.HOUR_MINUTE_FORMAT : this.TIME_FORMAT);
   }
 
   getNowDaysInMonth(): number {
@@ -101,6 +107,14 @@ export class SwDate {
 
   getNow() {
     return new Date(moment().format(this.DATETIME_FORMAT));
+  }
+
+  diffMinute(startTime: Date, endTime: Date): number {
+    return moment(endTime, this.HOUR_MINUTE_FORMAT).diff(moment(startTime, this.HOUR_MINUTE_FORMAT), 'minutes');
+  }
+
+  diff(startDate: Date | string, endDate: Date | string, unitOfTime: Diff = 'days'): number {
+    return moment(this.covertDate(endDate)).diff(moment(this.covertDate(startDate)), unitOfTime);
   }
 
   getDateSerialNumber(serialNumber: string = (Math.round(Math.random() * 23 + 1000)).toString(), isShowTime = false) {
@@ -200,7 +214,7 @@ export class SwDate {
     return `${this.getTaiwanYear(date)}${moment(date).format(this.MONTH_FORMAT + this.DAY_FORMAT)}`;
   }
 
-  isValidDate(date: string | Date): boolean {
+  isValid(date: string | Date): boolean {
     return moment(date).isValid();
   }
 
@@ -234,5 +248,9 @@ export class SwDate {
 
   endMonth(date = new Date(), format = this.DATE_FORMAT) {
     return moment(date).endOf('month').format(format);
+  }
+
+  timeRangeToString(timeRange: TimeRange) {
+    return `${timeRange.startHour}:${timeRange.startMinute}~${timeRange.endHour}:${timeRange.endMinute}`;
   }
 }
