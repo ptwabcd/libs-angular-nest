@@ -1,0 +1,32 @@
+<div #container >
+  <mat-card fxLayout="row" fxLayoutAlign="space-between" class="m-b-16">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <ng-container *ngFor="let breadcrumb of breadcrumbList; trackBy trackByIndex; let index = index">
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <a *ngIf="breadcrumb.isLink; else breadcrumbTitle" class="text-primary" fxLayoutAlign="start center" [routerLink]="[breadcrumb.path]">
+            <ng-container [ngTemplateOutlet]="breadcrumbTitle"></ng-container>
+          </a>
+          <ng-template #breadcrumbTitle>
+            <sw-mat-icon [iconName]="breadcrumb.icon" [libsClass]="'m-r-4'"></sw-mat-icon>
+            <span>{{ breadcrumb.title | translate }}</span>
+          </ng-template>
+        </div>
+        <div class="m-rl-8" *ngIf="(index + 1) !== breadcrumbList.length"> > </div>
+      </ng-container>
+    </div>
+
+    <div *ngIf="!isXsView && buttonTemplate" fxLayout="row" fxLayoutGap="8px">
+      <ng-container [ngTemplateOutlet]="buttonTemplate" ></ng-container>
+    </div>
+  </mat-card>
+</div>
+
+<div *ngIf="isXsView && buttonTemplate" class="button-mobile-mode" >
+  <div *ngIf="isToolOpen" [@animation] fxLayout="column" fxLayoutGap="8px">
+    <ng-container [ngTemplateOutlet]="buttonTemplate"></ng-container>
+  </div>
+  <button class="m-t-8" mat-mini-fab color="accent" (click)="clickToolButton()">
+    <mat-icon [@rotatedState]="isToolOpen">{{ toolButtonIcon }}</mat-icon>
+  </button>
+</div>
+

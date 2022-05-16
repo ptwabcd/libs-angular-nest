@@ -1,0 +1,14 @@
+<mat-select #matSelect
+            [formControl]="selectControl"
+            (opened)="opened()"
+            (closed)="setRenderedRange()"
+            (selectionChange)="selectionChanged($event)">
+  <cdk-virtual-scroll-viewport [itemSize]="itemSize" [style.height.px]="itemSize * displayCount" (scrolledIndexChange)="viewport.checkViewportSize()">
+    <mat-option *cdkVirtualFor="let item of data; trackBy trackByIndex; let itemIndex = index"
+                [value]="itemIndex"
+                [style.height.px]="itemSize"
+                [ngClass]="{'mat-active': itemIndex === selectControl.value}">
+      <ng-template [ngTemplateOutlet]="templateRef" [ngTemplateOutletContext]="{$implicit: item}"></ng-template>
+    </mat-option>
+  </cdk-virtual-scroll-viewport>
+</mat-select>

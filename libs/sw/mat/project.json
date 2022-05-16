@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/sw/mat",
   "sourceRoot": "libs/sw/mat/src",
-  "prefix": "full-stack",
+  "prefix": "sw-mat",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",

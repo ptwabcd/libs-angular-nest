@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>欄位顯示調整</h2>
+<button mat-icon-button class="mat-dialog-close" [matDialogClose]="false" tabindex="-1" [matTooltip]="'CLOSE' | translate" placement="left"><mat-icon>close</mat-icon></button>
+<div mat-dialog-content fxLayout="column" cdkDropList  (cdkDropListDropped)="drop($event)">
+  <ng-container *ngFor="let column of data;let index = index; trackBy: trackByIndex">
+    <div class="block" cdkDrag >
+      <mat-checkbox color="primary" class="m-r-16"
+                    [checked]="column.isDisplay"
+                    (change)="column.isDisplay = !column.isDisplay"
+                    (click)="$event.stopPropagation()">
+      </mat-checkbox>
+      <span>{{ column.title }}</span>
+    </div>
+  </ng-container>
+</div>
+<mat-dialog-actions>
+  <button mat-button color="warn" [matDialogClose]="false">{{ 'CANCEL' | translate }}</button>
+  <button mat-button color="primary" (click)="confirm()">{{ 'CONFIRM' | translate }}</button>
+</mat-dialog-actions>

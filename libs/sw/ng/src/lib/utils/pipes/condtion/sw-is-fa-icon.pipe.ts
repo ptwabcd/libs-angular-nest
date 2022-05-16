@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * 判斷icon 是否為 Font Awesome
  */
 @Pipe({
-  name: 'swIFaIcon'
+  name: 'swIsFaIcon'
 })
 export class SwIsFaIconPipe implements PipeTransform {
 

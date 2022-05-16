@@ -1,0 +1,47 @@
+.mat-dialog-container {
+  padding: 0 !important;
+  border-radius: 2px;
+  position: relative;
+  overflow: visible !important; // fix ie performance
+  .mat-dialog-content {
+    margin: 0;
+    padding: $space-3 $space-3;
+    max-height: calc(100vh - 185px) !important;
+  }
+  .mat-dialog-actions:last-child {
+    margin: $space-1 0;
+    padding: 0 $space-2;
+    justify-content: flex-end;
+  }
+  .mat-dialog-close {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    color:mat-color($mat-grey, 50)
+  }
+}
+
+.mat-dialog-title {
+  color: mat-color($mat-grey, 50);
+  padding: $space-2 56px $space-2 $space-2;
+  margin: 0 !important;
+}
+
+.cdk-global-scrollblock {
+  overflow: hidden !important;
+}
+
+.custom-full-overlay-pane-class {
+  min-width: 100% !important;
+  min-height: 100% !important;
+  height: 100vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .custom-overlay-pane-class, .custom-full-overlay-pane-class {
+    min-width: 100% !important;
+    min-height: 100% !important;
+    height: 100vh;
+  }
+
+}

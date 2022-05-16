@@ -1,0 +1,189 @@
+@mixin color-component ($primary, $accent, $warn) {
+  .bg-primary-50 {
+    background-color: mat-color($primary, 50);
+  }
+  .bg-primary-100 {
+    background-color: mat-color($primary, 100);
+  }
+  .bg-primary-200 {
+    background-color: mat-color($primary, 200);
+  }
+  .bg-primary-300 {
+    background-color: mat-color($primary, 300);
+  }
+  .bg-primary-400 {
+    background-color: mat-color($primary, 400);
+  }
+  .bg-primary-500 {
+    background-color: mat-color($primary, 500);
+  }
+  .bg-primary-600 {
+    background-color: mat-color($primary, 600);
+  }
+  .bg-primary-700 {
+    background-color: mat-color($primary, 700);
+  }
+  .bg-primary-800 {
+    background-color: mat-color($primary, 800) !important;
+  }
+  .bg-primary-900 {
+    background-color: mat-color($primary, 900);
+  }
+
+  .cl-primary-50 {
+    color: mat-color($primary, 50);
+  }
+  .cl-primary-100 {
+    color: mat-color($primary, 100);
+  }
+  .cl-primary-200 {
+    color: mat-color($primary, 200);
+  }
+  .cl-primary-300 {
+    color: mat-color($primary, 300);
+  }
+  .cl-primary-400 {
+    color: mat-color($primary, 400);
+  }
+  .cl-primary-500 {
+    color: mat-color($primary, 500);
+  }
+  .cl-primary-600 {
+    color: mat-color($primary, 600);
+  }
+  .cl-primary-700 {
+    color: mat-color($primary, 700);
+  }
+  .cl-primary-800 {
+    color: mat-color($primary, 800);
+  }
+  .cl-primary-900 {
+    color: mat-color($primary, 900);
+  }
+
+  .bg-accent-50 {
+    background-color: mat-color($accent, 50);
+  }
+  .bg-accent-100 {
+    background-color: mat-color($accent, 100);
+  }
+  .bg-accent-200 {
+    background-color: mat-color($accent, 200);
+  }
+  .bg-accent-300 {
+    background-color: mat-color($accent, 300) !important;
+  }
+  .bg-accent-400 {
+    background-color: mat-color($accent, 400);
+  }
+  .bg-accent-500 {
+    background-color: mat-color($accent, 500);
+  }
+  .bg-accent-600 {
+    background-color: mat-color($accent, 600);
+  }
+  .bg-accent-700 {
+    background-color: mat-color($accent, 700);
+  }
+  .bg-accent-800 {
+    background-color: mat-color($accent, 800);
+  }
+  .bg-accent-900 {
+    background-color: mat-color($accent, 900);
+  }
+
+
+  .cl-accent-50 {
+    color: mat-color($accent, 50);
+  }
+  .cl-accent-100 {
+    color: mat-color($accent, 100);
+  }
+  .cl-accent-200 {
+    color: mat-color($accent, 200);
+  }
+  .cl-accent-300 {
+    color: mat-color($accent, 300);
+  }
+  .cl-accent-400 {
+    color: mat-color($accent, 400);
+  }
+  .cl-accent-500 {
+    color: mat-color($accent, 500);
+  }
+  .cl-accent-600 {
+    color: mat-color($accent, 600);
+  }
+  .cl-accent-700 {
+    color: mat-color($accent, 700);
+  }
+  .cl-accent-800 {
+    color: mat-color($accent, 800);
+  }
+  .cl-accent-900 {
+    color: mat-color($accent, 900);
+  }
+
+  .bg-warn-50 {
+    background-color: mat-color($warn, 50);
+  }
+  .bg-warn-100 {
+    background-color: mat-color($warn, 100);
+  }
+  .bg-warn-200 {
+    background-color: mat-color($warn, 200);
+  }
+  .bg-warn-300 {
+    background-color: mat-color($warn, 300) !important;
+  }
+  .bg-warn-400 {
+    background-color: mat-color($warn, 400);
+  }
+  .bg-warn-500 {
+    background-color: mat-color($warn, 500);
+  }
+  .bg-warn-600 {
+    background-color: mat-color($warn, 600);
+  }
+  .bg-warn-700 {
+    background-color: mat-color($warn, 700);
+  }
+  .bg-warn-800 {
+    background-color: mat-color($warn, 800);
+  }
+  .bg-warn-900 {
+    background-color: mat-color($warn, 900);
+  }
+
+
+  .cl-warn-50 {
+    color: mat-color($warn, 50);
+  }
+  .cl-warn-100 {
+    color: mat-color($warn, 100);
+  }
+  .cl-warn-200 {
+    color: mat-color($warn, 200);
+  }
+  .cl-warn-300 {
+    color: mat-color($warn, 300);
+  }
+  .cl-warn-400 {
+    color: mat-color($warn, 400);
+  }
+  .cl-warn-500 {
+    color: mat-color($warn, 500);
+  }
+  .cl-warn-600 {
+    color: mat-color($warn, 600);
+  }
+  .cl-warn-700 {
+    color: mat-color($warn, 700);
+  }
+  .cl-warn-800 {
+    color: mat-color($warn, 800);
+  }
+  .cl-warn-900 {
+    color: mat-color($warn, 900);
+  }
+}

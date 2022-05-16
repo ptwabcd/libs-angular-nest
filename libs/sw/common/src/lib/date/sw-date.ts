@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 import Diff = moment.unitOfTime.Diff;
 import { unitOfTime } from 'moment';
-import { TimeRange } from './sw-time-trange';
+import { SwTimeRange } from './sw-time-trange';
 
 export class SwDate {
 
@@ -250,7 +250,20 @@ export class SwDate {
     return moment(date).endOf('month').format(format);
   }
 
-  timeRangeToString(timeRange: TimeRange) {
+  timeRangeToString(timeRange: SwTimeRange) {
     return `${timeRange.startHour}:${timeRange.startMinute}~${timeRange.endHour}:${timeRange.endMinute}`;
   }
+
+  splitTimeRange(timeRange: string) {
+    const timeRanges = timeRange.split('~');
+    const startHourMinutes = timeRanges[0].split(':');
+    const endHourMinutes = timeRanges[1].split(':');
+    return {
+      startHour: startHourMinutes[0],
+      startMinute: startHourMinutes[1],
+      endHour: endHourMinutes[0],
+      endMinute: endHourMinutes[1]
+    };
+  }
+
 }

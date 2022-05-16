@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { SwDate } from 'sw-common';
 
 @Pipe({
-  name: 'swLibsDate'
+  name: 'swDate'
 })
 export class SwDatePipe implements PipeTransform {
 

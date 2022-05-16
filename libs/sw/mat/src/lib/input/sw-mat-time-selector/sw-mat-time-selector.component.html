@@ -1,0 +1,23 @@
+<mat-form-field fxFlexOffset="16px" fxFlex="50px">
+  <sw-mat-virtual-scroll-select [data]="CREATE_ARRAY_TYPE.HOUR | swCreateArray" [formControl]="form.get('startHour')">
+    <ng-template let-item>{{ item }}</ng-template>
+  </sw-mat-virtual-scroll-select>
+</mat-form-field>
+<span fxFlex="30px" class="center" fxFlexAlign="center">：</span>
+<mat-form-field fxFlex="50px">
+  <sw-mat-virtual-scroll-select [data]="CREATE_ARRAY_TYPE.MINUTE | swCreateArray" [formControl]="form.get('startMinute')">
+    <ng-template let-item>{{ item }}</ng-template>
+  </sw-mat-virtual-scroll-select>
+</mat-form-field>
+<span fxFlex="30px" class="center" fxFlexAlign="center">～</span>
+<mat-form-field fxFlex="50px">
+  <sw-mat-virtual-scroll-select [data]="CREATE_ARRAY_TYPE.HOUR | swCreateArray" [formControl]="form.get('endHour')">
+    <ng-template let-item>{{ item }}</ng-template>
+  </sw-mat-virtual-scroll-select>
+</mat-form-field>
+<span fxFlex="30px" class="center" fxFlexAlign="center">：</span>
+<mat-form-field fxFlex="50px">
+  <sw-mat-virtual-scroll-select [data]="CREATE_ARRAY_TYPE.MINUTE | swCreateArray" [formControl]="form.get('endMinute')">
+    <ng-template let-item>{{ item }}</ng-template>
+  </sw-mat-virtual-scroll-select>
+</mat-form-field>

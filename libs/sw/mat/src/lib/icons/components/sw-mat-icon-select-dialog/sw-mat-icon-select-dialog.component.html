@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>{{ 'SELECT_ICON' | translate }}</h2>
+<button mat-icon-button class="mat-dialog-close" [matDialogClose]="false" tabindex="-1" [matTooltip]="'CLOSE' | translate" placement="left">
+  <mat-icon>close</mat-icon>
+</button>
+<mat-dialog-content>
+  <div class="m-t-8" fxLayout="column" fxLayoutGap="8px">
+    <div fxLayout="row">
+      <span>{{ 'ICON_TYPE' | translate }}</span>
+      <mat-radio-group  class="m-l-8" [formControl]="iconTypeFormControl">
+        <mat-radio-button class="m-l-8" [value]="ICON_TYPE.MAT">Material Icon</mat-radio-button>
+        <mat-radio-button class="m-l-8" [value]="ICON_TYPE.FA">Fontawesome Icon</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <mat-form-field class="w-full">
+      <input matInput [placeholder]="'PLEASE_INPUT_CODE' | translate" [formControl]="iconFormControl">
+      <span matPrefix>{{ iconTypeFormControl.value === ICON_TYPE.MAT ? '' : 'fa-' }}</span>
+      <mat-hint>
+        {{ 'REFERENCE_WEBSITE' | translate }}:
+        <ng-container *ngIf="iconTypeFormControl.value === ICON_TYPE.MAT; else faIconTemplate">
+          <a href="https://material.io/resources/icons/?style=baseline" target="_blank">
+            https://material.io/resources/icons/?style=baseline
+          </a>
+        </ng-container>
+        <ng-template #faIconTemplate>
+          <a href="https://fontawesome.com/icons?m=free" target="_blank">
+            https://fontawesome.com/icons?m=free
+          </a>
+        </ng-template>
+      </mat-hint>
+    </mat-form-field>
+    <div fxLayoutAlign="center center">
+      <ng-container *ngIf="iconFormControl.value">
+        <sw-mat-icon [size]="120" color="primary" [libsStyle]="{'color': 'red'}"
+                       [iconName]="iconTypeFormControl.value === ICON_TYPE.MAT ? iconFormControl.value : ('fa-' + iconFormControl.value)">
+        </sw-mat-icon>
+      </ng-container>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="end">
+  <button mat-button color="warn" [matDialogClose]="false">{{ 'CANCEL' | translate }}</button>
+  <button mat-button color="primary" [disabled]="!iconFormControl.value" (click)="confirm()">{{ 'CONFIRM' | translate }}</button>
+</mat-dialog-actions>

@@ -1,0 +1,27 @@
+<!--城市、地區、郵遞區號-->
+<div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap.gt-sm="16px">
+  <mat-form-field fxFlex>
+    <mat-select [placeholder]="'CITY' | translate" [formControl]="form.get('city')" (selectionChange)="updateDistrict()">
+      <ng-container *ngFor="let city of cities; trackBy: trackByIndex">
+        <mat-option [value]="city.value">{{ city.value }}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field fxFlex>
+    <mat-select [placeholder]="'DISTRICT' | translate" [formControl]="form.get('district')" (selectionChange)="getZipCode();valueChange()">
+      <ng-container *ngFor="let district of districts; trackBy: trackByIndex">
+        <mat-option [value]="district.value">{{ district.value }}</mat-option>
+      </ng-container>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field fxFlex>
+    <input matInput [placeholder]="'ZIP_CODE' | translate" [formControl]="form.get('zipCode')" (input)="valueChange()">
+  </mat-form-field>
+</div>
+
+<!--地址-->
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap.gt-sm="16px">
+  <mat-form-field class="w-full">
+    <input matInput [placeholder]="'ADDRESS' | translate" [formControl]="form.get('address')" (input)="valueChange()">
+  </mat-form-field>
+</div>

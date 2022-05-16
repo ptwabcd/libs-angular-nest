@@ -1,0 +1,6 @@
+<ng-container *ngIf="isOpen">
+  <span fxLayoutAlign="end" class="mat-text-primary">{{ progressValue }} %</span>
+  <mat-progress-bar color="primary" [value]="progressValue"></mat-progress-bar>
+  <ngx-loading [show]="progressValue === 100"></ngx-loading>
+</ng-container>
+

@@ -1,0 +1,36 @@
+@mixin custom-material($primary, $accent, $warn) {
+  .mat-dialog-title {
+    background: mat-color($primary, 400);
+  }
+
+  .th-table {
+    .mat-sort-header[ng-reflect-disabled=false] .mat-sort-header-container {
+      color:mat-color($primary, 700);
+    }
+    .mat-header-row {
+      background-color: mat-color($primary, 100);
+    }
+  }
+
+  .table-bg {
+    .mat-row.cross:nth-child(odd) {
+      background-color: mat-color($primary, 50);
+    }
+    .mat-row.white {
+      border-bottom: 1px solid lightgray;
+    }
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: mat-color($primary, 500) !important;
+  }
+
+  // 透明按鈕
+  button.transparent {
+    background: transparent !important;
+    border: 1px solid mat-color($warn, 500) !important;
+    color: mat-color($warn, 500) !important;
+  }
+}
+
+

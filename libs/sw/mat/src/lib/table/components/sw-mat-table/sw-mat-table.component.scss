@@ -1,0 +1,15 @@
+.mat-cell.optional, .mat-header-cell.optional {
+  overflow: inherit;
+}
+
+th, td {
+  border-bottom: solid 0 !important;
+}
+
+.mat-row {
+  align-items: initial;
+}
+
+.row-text {
+  word-break: break-word;
+}

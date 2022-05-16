@@ -1,0 +1,21 @@
+<div [ngStyle]="hostStyle">
+
+  <img *ngIf="src"
+       [src]="src"
+       [width]="size"
+       [height]="size"
+       [ngStyle]="avatarStyle"/>
+
+  <div *ngIf="!src" [ngStyle]="avatarStyle">
+    <div fxLayout="column" fxLayoutAlign="start center">
+      <ng-container *ngIf="icon">
+        <sw-mat-icon [size]="iconSize"
+                       [iconName]="icon"
+                       [libsStyle]="{color: iconColor}"
+                       [style.marginTop.px]="-iconSize + 15"
+                       [style.height.px]="iconSize + 9"></sw-mat-icon>
+      </ng-container>
+      <span>{{ (name) ? (name | swShorthand) : ('AVATAR' | translate) }}</span>
+    </div>
+  </div>
+</div>

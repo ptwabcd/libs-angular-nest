@@ -1,4 +1,4 @@
-import { SwMaterialIconType } from './enums/sw-mat-icon-type.enum';
+import { SwMaterialIconType } from './enums';
 
 export class SwMatIconCategories {
   categories: Array<{

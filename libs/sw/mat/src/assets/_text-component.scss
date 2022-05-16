@@ -1,0 +1,26 @@
+@mixin text-component($primary, $accent, $warn) {
+  .text-primary {
+    color: mat-color($primary, 500) !important;
+  }
+
+  .text-warn {
+    color: mat-color($warn, 500) !important;
+  }
+
+  .text-hover-warn:hover {
+    color: mat-color($warn, 500) !important;
+  }
+
+  .text-accent {
+    color: mat-color($accent, 500) !important;
+  }
+
+  .text-gray {
+    color: mat-color($mat-gray, 500) !important;
+  }
+
+  .text-gray-400 {
+    color: mat-color($mat-gray, 400) !important;
+  }
+}
+

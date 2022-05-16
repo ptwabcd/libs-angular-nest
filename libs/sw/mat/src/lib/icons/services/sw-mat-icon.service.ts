@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MaterialIconCategories } from '@shared-lib/common/icons/models/material-icon-categories';
 import { tap } from 'rxjs/operators';
-import { MaterialIconType } from '@shared-lib/common/icons/models/enums/material-icon-type.enum';
+import { SwMaterialIconType, SwMatIconCategories } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import { MaterialIconType } from '@shared-lib/common/icons/models/enums/material
 export class SwMatIconService {
 
   private libsAssetsPath = `libs/shared/src/assets/icons/material-icons-list.json`;
-  materialIcon: MaterialIconCategories;
+  materialIcon: SwMatIconCategories;
   icons: Array<string> = [];
 
   constructor(
@@ -19,7 +18,7 @@ export class SwMatIconService {
   }
 
   init() {
-    return this.httpClient.get<MaterialIconCategories>(this.libsAssetsPath).pipe(tap(materialIcon => {
+    return this.httpClient.get<SwMatIconCategories>(this.libsAssetsPath).pipe(tap(materialIcon => {
       this.materialIcon = materialIcon;
       materialIcon.categories.forEach(category => category.icons.forEach(icon => this.icons.push(icon.ligature)));
     })).toPromise();
@@ -39,12 +38,12 @@ export class SwMatIconService {
     return this.icons;
   }
 
-  private commonType(materialIconType: MaterialIconType) {
-    return materialIconType === MaterialIconType.DEVICE ||
-      materialIconType === MaterialIconType.HARDWARE ||
-      materialIconType === MaterialIconType.MAPS ||
-      materialIconType === MaterialIconType.NOTIFICATION ||
-      materialIconType === MaterialIconType.PLACES ||
-      materialIconType === MaterialIconType.SOCIAL;
+  private commonType(materialIconType: SwMaterialIconType) {
+    return materialIconType === SwMaterialIconType.DEVICE ||
+      materialIconType === SwMaterialIconType.HARDWARE ||
+      materialIconType === SwMaterialIconType.MAPS ||
+      materialIconType === SwMaterialIconType.NOTIFICATION ||
+      materialIconType === SwMaterialIconType.PLACES ||
+      materialIconType === SwMaterialIconType.SOCIAL;
   }
 }

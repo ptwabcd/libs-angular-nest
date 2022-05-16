@@ -7,5 +7,6 @@ export * from './print';
 export * from './prototype';
 export * from './resource';
 export * from './table';
+export * from './upload';
 export * from './user';
 export * from './util';

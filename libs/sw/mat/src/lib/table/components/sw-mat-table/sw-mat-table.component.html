@@ -1,0 +1,254 @@
+<sw-container [resolved]="dataResolved" [error]="dataError">
+  <ng-container *ngIf="dataResolved">
+    <ng-container *ngIf="rows && rows['data'] && rows['data'].length > 0; else noData;">
+      <mat-error fxLayoutAlign="end">
+        <span *ngIf="isStickyTableMode">{{ 'YOU_CAN_SWIPE_LEFT_AND_RIGHT_TO_VIEW_THE_REMAINING_FIELDS' | translate }}</span>
+      </mat-error>
+      <div #tableContainer class="w-100" [ngStyle]="{'overflow': isStickyTableMode ? 'auto' : 'unset' }">
+        <mat-table #table matSort
+                   [dataSource]="rows"
+                   (matSortChange)="sortChanged($event)"
+                   [matSortDisableClear]="true"
+                   [matSortStart]="(enabledDefaultSorting) ? (pagination.sortDirection) : null"
+                   [matSortDirection]="(enabledDefaultSorting) ? (pagination.sortDirection) : null"
+                   [matSortActive]="(enabledDefaultSorting) ? (pagination.sortKey) : null"
+                   [style.width.px]="isStickyTableMode ? minWidth : tableContainerWidth"
+                   cdkDropList
+                   [cdkDropListDisabled]="!enableDragDrop"
+                   [cdkDropListData]="rows"
+                   (cdkDropListDropped)="dropTableRows($event)"
+                   class="th-table table-bg" style="display: block;">
+
+          <ng-container *ngIf="enableAdjustColumn; else commonHeader">
+            <mat-header-row *matHeaderRowDef="displayedColumns" [sortablejs]="displayedColumns" (drop)="drop(displayedColumns)"></mat-header-row>
+          </ng-container>
+          <ng-template #commonHeader>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          </ng-template>
+
+          <ng-container  *ngFor="let column of columns; let i = index">
+            <ng-container *ngIf="column?.columnKey"
+                          [matColumnDef]="column.columnKey"
+                          [sticky]="column.isSticky && isStickyTableMode"
+                          [stickyEnd]="column.isStickyEnd && isStickyTableMode">
+              <!--Start: table header-->
+              <mat-header-cell fxLayout="row"
+                               *matHeaderCellDef
+                               [mat-sort-header]="column.isSortable ? column.sortKey : null"
+                               [disabled]="!column.isSortable"
+                               [ngClass]="{ 'optional' : column.type === COLUMNS_TYPE_OPTIONAL}"
+                               [fxFlex]="column.width"
+                               [fxLayoutAlign]="(column.cellAlign) ? column.cellAlign : 'start'"
+                               [ngStyle]="{
+                                        'borderRight': (column.isSticky && isStickyTableMode) ? '1px solid #e0e0e0' : '0px',
+                                        'borderLeft': (column.isStickyEnd && isStickyTableMode) ? '1px solid #e0e0e0' : '0px'
+                                       }">
+                <ng-container *ngTemplateOutlet="headerCell; context:column"></ng-container>
+              </mat-header-cell>
+              <!--End: table header-->
+
+              <!--Start: table cell-->
+              <mat-cell *cdkCellDef="let row; let rowIndex = index"
+                        [ngSwitch]="column.type"
+                        [fxFlex]="column.width"
+                        [ngClass]="{ 'optional' : column.type === COLUMNS_TYPE_OPTIONAL}"
+                        [ngStyle]="{'borderRight': (column.isSticky && isStickyTableMode) ? '1px solid #e0e0e0' : '0px',
+                                            'borderLeft': (column.isStickyEnd && isStickyTableMode) ? '1px solid #e0e0e0' : '0px'}">
+                <div  [ngStyle]="{color: colorKey ? row[colorKey]: 'black'}" class="w-100 p-8" fxLayout="row" [fxLayoutAlign]="(column.cellAlign) ? column.cellAlign : 'start'">
+
+                  <span *ngIf="column.prefixText && (row | swStr2Obj: column.columnKey)">{{ column.prefixText }}</span>
+
+                  <ng-container *ngSwitchCase="COLUMNS_TYPE_EXPAND" >
+                    <ng-container >
+                      <mat-icon >add</mat-icon>
+                    </ng-container>
+
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMNS_TYPE_SERIAL" >
+                    <span>{{ rowIndex | swTableSerialNumber: pagination }}</span>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMNS_TYPE_OPTIONAL">
+                    <ng-container *ngIf="optionalMode === OPTIONAL_MODE.MULTIPLE; else SINGLE">
+                      <mat-checkbox #item [value]="row"
+                                    (click)="$event.stopPropagation()"
+                                    (change)="changeSelection($event.checked, item.value)"
+                                    [checked]="isSelected(row | swStr2Obj: column.columnKey)"
+                                    [disabled]="isOptionalDisabled(row | swStr2Obj: column.columnKey) || disabled">
+                      </mat-checkbox>
+                    </ng-container>
+                    <ng-template #SINGLE>
+                      <mat-radio-button #item [value]="row | swStr2Obj: column.columnKey"
+                                        (click)="$event.stopPropagation()"
+                                        (change)="$event ? selection.toggle(item.value) : null"
+                                        [checked]="isSelected(row | swStr2Obj: column.columnKey)"
+                                        [disabled]="isOptionalDisabled(row | swStr2Obj: column.columnKey) || disabled">
+                      </mat-radio-button>
+                    </ng-template>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.TEXT">
+                    <ng-container *ngIf="column.isStr2Obj">
+                      <span class="row-text" [ngClass]="{'el-ellipsis': column.isEllipsis}" [matTooltip]="row | swStr2Obj: column.columnKey">{{ row | swStr2Obj: column.columnKey }}</span>
+                    </ng-container>
+                    <ng-container *ngIf="!column.isStr2Obj">
+                      <span class="row-text" [ngClass]="{'el-ellipsis': column.isEllipsis}" [matTooltip]="row[column.columnKey]">{{ row[column.columnKey] }}</span>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.TEXTAREA">
+                    <div [innerHTML]="row | swStr2Obj: column.columnKey | htmlEscape | swNl2Br"></div>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.NUMBER">
+                    <span>{{ row | swStr2Obj: column.columnKey | number }}</span>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.HTML">
+                    <div [innerHTML]="row | swStr2Obj: column.columnKey | swNl2Br"></div>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.ICON">
+                    <sw-mat-icon [iconName]="row | swStr2Obj: column.columnKey"></sw-mat-icon>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.LINK">
+                    <a href="javascript:void(0)" (click)="column.link(row)"><span>{{ row | swStr2Obj: column.columnKey }}</span></a>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.ACTION">
+                    <ng-container *ngTemplateOutlet="actionType; context:{action: column.action, row: row}"></ng-container>
+                  </ng-container>
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.ACTIONS">
+                    <div fxFlex fxLayout="row warp"  [fxLayoutAlign]="(column.cellAlign) ? column.cellAlign : 'start'">
+                      <ng-container *ngFor="let action of column.actions; trackBy: trackByIndex;">
+                        <ng-container *ngTemplateOutlet="actionType; context:{action: action, row: row}"></ng-container>
+                      </ng-container>
+                    </div>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.DYNAMIC_COMPONENT">
+                    <sw-dynamic-component fxFlex="auto" [componentData]="column.componentObject | swObj2ComponentData: row"></sw-dynamic-component>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.ENUM">
+                    {{ column.enumKeys[(row | swStr2Obj: column.columnKey)] | translate }}
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.ARRAY_BR">
+                    <div fxLayout="column">
+                      <ng-container *ngFor="let item of (row | swStr2Obj: column.columnKey); trackBy: trackByIndex;">
+                        <span>{{ item }}</span>
+                      </ng-container>
+                    </div>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.DATE">
+                    <span>{{ row | swStr2Obj: column.columnKey | swDate }}</span>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.DATETIME">
+                    <span>{{ row | swStr2Obj: column.columnKey | swDate: true }}</span>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="COLUMN_TYPE.CHECKBOX">
+                   <mat-checkbox [checked]="row[column.columnKey]" disabled aria-readonly="true"></mat-checkbox>
+                  </ng-container>
+
+                  <span *ngIf="column.suffixText && (row | swStr2Obj: column.columnKey)">{{ column.suffixText }}</span>
+                </div>
+              </mat-cell>
+                <mat-footer-cell class="cl-white" *matFooterCellDef>
+                  <div class="w-100 p-8" fxLayout="row">
+                    <ng-container [ngSwitch]="column.footer">
+                      <ng-container *ngSwitchCase="TABLE_FOOTER_MODE.EMPTY"></ng-container>
+                      <ng-container *ngSwitchCase="TABLE_FOOTER_MODE.SUM">{{ rows['data'] | swSum: column.columnKey | number }}</ng-container>
+                      <ng-container *ngSwitchCase="TABLE_FOOTER_MODE.FUNCTION">{{ column.footerFn() }}</ng-container>
+                      <ng-container *ngSwitchDefault>{{ column.footer }}</ng-container>
+                    </ng-container>
+                  </div>
+                </mat-footer-cell>
+              <!--End: table cell-->
+            </ng-container>
+          </ng-container>
+
+          <ng-container *ngIf="!expandTemplate">
+            <mat-row *matRowDef="let row; columns: displayedColumns;" cdkDrag
+                     [cdkDragData]="row"
+                     [ngClass]="(rowStyle === ROW_STYLE.CROSS ? 'cross': 'white')"
+                     [ngStyle]="{background: bgKey ? row[bgKey]: ''}">
+            </mat-row>
+
+            <ng-container *ngIf="enableGroup">
+              <mat-row class="el-link bg-lightgray" *matRowDef="let row; columns: ['groupHeader']; when: isGroup" cdkDrag [cdkDragDisabled]="true" (click)="groupHeaderClick(row)"> </mat-row>
+            </ng-container>
+
+            <!-- Group header -->
+            <ng-container matColumnDef="groupHeader">
+              <mat-cell colspan="999" *matCellDef="let group">
+                <mat-icon *ngIf="group.expanded">expand_less</mat-icon>
+                <mat-icon *ngIf="!group.expanded">expand_more</mat-icon>
+                <strong>{{ groupPrefixText }}{{ group[groupKey] }}</strong>
+              </mat-cell>
+            </ng-container>
+
+          </ng-container>
+          <ng-container *ngIf="expandTemplate">
+            <mat-row *matRowDef="let row; columns: displayedColumns;" matRipple class="relative expand-table" swMatExpandTable [row]="row" [expandTemplate]="expandTemplate" ></mat-row>
+          </ng-container>
+          <ng-container *ngIf="isDisplayFooter">
+            <mat-footer-row  class="bg-primary-400"  *matFooterRowDef="displayedColumns; sticky: false"></mat-footer-row>
+          </ng-container>
+        </mat-table>
+      </div>
+
+      <!-- start pagination-->
+      <mat-paginator #paginator
+                     *ngIf="enabledPagination"
+                     [length]="pagination.total"
+                     [pageIndex]="(pagination.currentPage -1)"
+                     [pageSize]="pagination.perPage"
+                     [pageSizeOptions]="[1, 5, 10, 15, 20, 30]"
+                     (page)="pageChanged($event)" class="m-t-8">
+      </mat-paginator>
+      <!-- end pagination-->
+
+      <!--header cell-->
+      <ng-template #headerCell let-type="type" let-title="title" let-columnKey="columnKey" let-headerAlign="headerAlign">
+        <div class="w-100 p-8" fxLayout="row" [fxLayoutAlign]="(headerAlign) ? headerAlign : 'start'">
+          <ng-container *ngIf="(type === COLUMNS_TYPE_OPTIONAL) && (optionalMode === OPTIONAL_MODE.MULTIPLE); else DEFAULT_HEADER;">
+            <ng-container *ngIf="enabledMasterToggle">
+              <mat-checkbox (change)="$event ? masterToggle(columnKey) : null"
+                            [checked]="isAllSelected(columnKey)" [disabled]="disabled">
+              </mat-checkbox>
+            </ng-container>
+          </ng-container>
+          <ng-template #DEFAULT_HEADER>
+            <span>{{ title }}</span>
+          </ng-template>
+        </div>
+      </ng-template>
+
+      <!--action type-->
+      <ng-template #actionType let-action="action" let-row="row">
+        <div [ngSwitch]="action.type">
+          <!-- 純 button -->
+          <ng-container *ngSwitchCase="ACTION_TYPE.BUTTON">
+            <button mat-raised-button [color]="action.color" (click)="action.fn(row)" *ngIf="action.isShow === undefined ? true : action.isShow">{{ action.text }}</button>
+          </ng-container>
+          <!-- icon button -->
+          <ng-container *ngSwitchCase="ACTION_TYPE.ICON_BUTTON">
+            <button mat-icon-button [matTooltip]="action.text" placement="left" (click)="action.fn(row)" *ngIf="action.isShow === undefined ? true : action.isShow">
+              <sw-mat-icon [color]="action.color" [iconName]="action.iconName"></sw-mat-icon>
+            </button>
+          </ng-container>
+        </div>
+      </ng-template>
+    </ng-container>
+    <ng-template #noData>
+      <sw-mat-no-data></sw-mat-no-data>
+    </ng-template>
+  </ng-container>
+</sw-container>
+

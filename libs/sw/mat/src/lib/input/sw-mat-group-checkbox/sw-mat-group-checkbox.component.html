@@ -1,0 +1,12 @@
+<div fxLayout="row wrap" *ngIf="items">
+  <ng-container *ngFor="let item of items; trackBy: trackByIndex">
+    <mat-checkbox [fxFlex]="width + 'px'"
+                  [disabled]="isOptionalDisabled(item.value) || disabled"
+                  [checked]="selection.isSelected(item.value) || isOptionalDisabledFn(item.value)"
+                  [value]="item.value"
+                  (change)="changeValue($event.checked, item.value)">
+      <span [matTooltip]="item.title | translate">{{ item.title | translate }}</span>
+    </mat-checkbox>
+  </ng-container>
+</div>
+

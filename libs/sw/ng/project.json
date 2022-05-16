@@ -2,7 +2,7 @@
   "projectType": "library",
   "root": "libs/sw/ng",
   "sourceRoot": "libs/sw/ng/src",
-  "prefix": "full-stack",
+  "prefix": "sw",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",

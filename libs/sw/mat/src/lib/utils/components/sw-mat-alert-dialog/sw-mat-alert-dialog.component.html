@@ -1,0 +1,45 @@
+<mat-dialog-content>
+  <div class="sweet-alert" [ngSwitch]="type">
+    <!-- 成功 -->
+    <div class="sa-icon sa-success animate" *ngSwitchCase="ALERT_TYPE.SUCCESS">
+      <span class="sa-line sa-tip animateSuccessTip"></span>
+      <span class="sa-line sa-long animateSuccessLong"></span>
+      <div class="sa-placeholder"></div>
+      <div class="sa-fix"></div>
+    </div>
+
+    <!-- 警告 -->
+    <div class="sa-icon sa-warning pulseWarning" *ngSwitchCase="ALERT_TYPE.WARN">
+      <span class="sa-body pulseWarningIns"></span>
+      <span class="sa-dot pulseWarningIns"></span>
+    </div>
+
+    <!-- 錯誤 -->
+    <div class="sa-icon sa-error animateErrorIcon" *ngSwitchCase="ALERT_TYPE.ERROR">
+        <span class="sa-x-mark animateXMark">
+          <span class="sa-line sa-left"></span>
+          <span class="sa-line sa-right"></span>
+        </span>
+    </div>
+
+    <!-- info -->
+    <div class="sa-icon sa-info animateXMark" *ngSwitchCase="ALERT_TYPE.INFO"></div>
+
+    <!-- question -->
+    <div class="sa-icon sa-question" *ngSwitchCase="ALERT_TYPE.QUESTION">?</div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" *ngSwitchCase="ALERT_TYPE.IMG">
+      <img [src]="img" width="100">
+    </div>
+
+    <p fxLayout="row" fxLayoutAlign="center center" [innerHTML]="message | htmlEscape | swNl2Br"></p>
+  </div>
+
+  <ngx-loading [show]="processing"></ngx-loading>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" *ngIf="showCancelButton || showConfirmButton">
+  <button mat-button color="warn" *ngIf="showCancelButton" (click)="cancel()" [disabled]="processing">{{ cancelButtonText }}</button>
+  <button mat-button color="primary" *ngIf="showConfirmButton" (click)="confirm()" [disabled]="processing">{{ confirmButtonText }}</button>
+</mat-dialog-actions>
+

@@ -1,0 +1,81 @@
+@mixin border-component($primary, $accent, $warn) {
+  .border-top-primary {
+    border-top: 5px solid;
+    border-color: mat-color($primary, 500);
+  }
+
+  .border-top-accent {
+    border-top: 5px solid;
+    border-color: mat-color($accent, 500);
+  }
+
+  .border-top-warn {
+    border-top: 5px solid;
+    border-color: mat-color($warn, 500);
+  }
+
+  .border-bottom-primary {
+    border-bottom: 5px solid;
+    border-color: mat-color($primary, 500);
+  }
+
+  .border-bottom-accent {
+    border-bottom: 5px solid;
+    border-color: mat-color($accent, 500);
+  }
+
+  .border-bottom-warn {
+    border-bottom: 5px solid;
+    border-color: mat-color($warn, 500);
+  }
+
+  .border-left-primary {
+    border-left: 5px solid;
+    border-color: mat-color($primary, 500);
+  }
+
+  .border-primary {
+    border: 1px solid mat-color($primary, 500);
+  }
+
+  .border-accent {
+    border: 1px solid mat-color($accent, 500);
+  }
+
+  .border-warn {
+    border: 1px solid mat-color($warn, 500);
+  }
+
+  .primary-underline {
+    border-bottom: 1px mat-color($primary, 500) solid;
+  }
+
+  .warn-underline {
+    border-bottom: 1px mat-color($warn, 500) solid;
+  }
+
+  .primary-circle-text {
+    border: 1px mat-color($primary, 500) solid;
+    color:  mat-color($primary, 500);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+  }
+
+  .title-left-border {
+    padding-left: 8px;
+    border-left: 6px solid mat-color($primary, 200);
+  }
+
+  .warn-border-block {
+    border: 1px mat-color($warn, 500) solid;
+    background: mat-color($warn, 100);
+    color: mat-color($warn, 500);
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 8px;
+  }
+}

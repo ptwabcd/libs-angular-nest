@@ -1,0 +1,29 @@
+@import '~@angular/material/theming';
+@import "overwrite";
+@import "border-component";
+@import "color-component";
+@import "text-component";
+@import "custom-material";
+@import "material-element";
+@import "dialog";
+@import "select";
+@import "table";
+@import "icon";
+@import "form-field";
+@import "drag";
+@import "card";
+@import "button";
+
+@mixin material-ui-kits-element($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $foreground: map-get($theme, foreground);
+
+  @include angular-material-theme($theme);
+  @include color-component($primary, $accent, $warn);
+  @include border-component($primary, $accent, $warn);
+  @include text-component($primary, $accent, $warn);
+  @include custom-material($primary, $accent, $warn);
+  @include material-element($primary, $accent, $warn);
+}

@@ -1,0 +1,12 @@
+<ng-container *ngIf="isShowButton">
+  <button type="button" mat-button color="primary" (click)="print()" [disabled]="printing">
+    <mat-icon *ngIf="isShowIcon">print</mat-icon>
+    <ng-container *ngIf="!printing">{{ btnText }}</ng-container>
+    <ng-container *ngIf="printing">{{ 'PRINTING' | translate }}</ng-container>
+  </button>
+</ng-container>
+
+<div class="print-only">
+  <ng-content></ng-content>
+</div>
+

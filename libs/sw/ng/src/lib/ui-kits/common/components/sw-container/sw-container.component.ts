@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { SwBaseComponent } from '../../../../utils/models/sw-base-component';
+import { SwBaseComponent } from '../../../../utils';
 
 @Component({
   selector: 'sw-container',

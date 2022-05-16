@@ -1,1 +1,1 @@
-export * from './lib/sw-mat.module';
+export * from './lib';

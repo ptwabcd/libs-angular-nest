@@ -1,0 +1,16 @@
+<h2 class="p-l-8 p-r-8 m-8">{{ 'UPLOAD_TOOL' | translate }}</h2>
+<mat-nav-list>
+  <a mat-list-item (click)="fileInput.click()">
+    <mat-icon mat-list-icon color="primary">image</mat-icon>
+    <input #fileInput type="file" [hidden]="true" sharedFileUpload (getDataUrl)="dismiss($event[0], formControl.value[0])" [formControl]="formControl">
+    <span mat-line>{{ 'UPLOAD_AVATAR' | translate }}</span>
+  </a>
+  <a mat-list-item *ngIf="data.currentFile" (click)="dismiss('', null)">
+    <mat-icon mat-list-icon color="warn">delete</mat-icon>
+    <span mat-line>{{ 'CLEAN_AVATAR' | translate }}</span>
+  </a>
+  <a mat-list-item *ngIf="data.originalFile && data.currentFile !== data.originalFile" (click)="dismiss(data.originalFile, null)">
+    <mat-icon mat-list-icon color="primary">reply</mat-icon>
+    <span mat-line>{{ 'REPLY_TO_ORIGINAL_AVATAR' | translate }}</span>
+  </a>
+</mat-nav-list>
