@@ -5,11 +5,11 @@ import { takeUntil } from 'rxjs/operators';
 import { SwBaseComponent, SwResourceResult } from 'sw-ng';
 
 @Component({
-  selector: 'libs-progress-bar',
-  templateUrl: './progress-bar.component.html',
-  styleUrls: ['./progress-bar.component.scss']
+  selector: 'sw-mat-progress-bar',
+  templateUrl: './sw-mat-progress-bar.component.html',
+  styleUrls: ['./sw-mat-progress-bar.component.scss']
 })
-export class ProgressBarComponent extends SwBaseComponent implements OnInit, OnChanges {
+export class SwMatProgressBarComponent extends SwBaseComponent implements OnInit, OnChanges {
 
   @Input() resourceResult: SwResourceResult<any>;
 

@@ -3,11 +3,11 @@ import { SwBaseComponent } from 'sw-ng';
 import { SwMatDialogService } from '../../../utils';
 
 @Component({
-  selector: 'libs-process-loading',
-  templateUrl: './process-loading.component.html',
-  styleUrls: ['./process-loading.component.scss']
+  selector: 'sw-mat-process-loading',
+  templateUrl: './sw-mat-process-loading.component.html',
+  styleUrls: ['./sw-mat-process-loading.component.scss']
 })
-export class ProcessLoadingComponent extends SwBaseComponent implements OnInit {
+export class SwMatProcessLoadingComponent extends SwBaseComponent implements OnInit {
 
   @Input() resolved: boolean;
 

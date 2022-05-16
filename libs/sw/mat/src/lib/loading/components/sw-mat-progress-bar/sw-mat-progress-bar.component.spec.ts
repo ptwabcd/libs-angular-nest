@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ProgressBarComponent } from './progress-bar.component';
+import { SwMatProgressBarComponent } from './sw-mat-progress-bar.component';
 
 describe('ProgressBarComponent', () => {
   // let component: ProgressBarComponent;

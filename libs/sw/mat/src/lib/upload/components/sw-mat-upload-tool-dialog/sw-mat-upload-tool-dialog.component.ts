@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 import { SwUploadToolResult, SwUploadToolConfig } from 'sw-common';
 
 @Component({
-  selector: 'libs-upload-bottom-sheet',
+  selector: 'sw-mat-upload-bottom-sheet',
   templateUrl: './sw-mat-upload-tool-dialog.component.html',
   styleUrls: ['./sw-mat-upload-tool-dialog.component.scss']
 })

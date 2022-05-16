@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
-import { ProcessLoadingComponent } from './process-loading.component';
+import { SwMatProcessLoadingComponent } from './sw-mat-process-loading.component';
 import { LoadingModule } from 'ngx-loading';
 import { MaterialModule } from '@material-ui-kits/modules/material/material.module';
 

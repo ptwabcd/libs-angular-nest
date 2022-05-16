@@ -5,8 +5,8 @@ import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 })
 export class SwVarDirective {
   @Input()
-  set libsVar(context: unknown) {
-    this.context.$implicit = this.context.libsVar = context;
+  set swVar(context: unknown) {
+    this.context.$implicit = this.context.swVar = context;
 
     if (!this.hasView) {
       this.vcRef.createEmbeddedView(this.templateRef, this.context);
@@ -16,10 +16,10 @@ export class SwVarDirective {
 
   private context: {
     $implicit: unknown;
-    libsVar: unknown;
+    swVar: unknown;
   } = {
     $implicit: null,
-    libsVar: null,
+    swVar: null,
   };
 
   private hasView = false;

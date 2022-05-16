@@ -2,12 +2,12 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { FlatTreeControl } from '@angular/cdk/tree';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-import { SwMatFlatItemNode } from '../../models/sw-mat-flat-item-node';
-import { SwMatItemNode } from '../../models/sw-mat-item-node';
+import { SwMatFlatItemNode } from '../../models';
+import { SwMatItemNode } from '../../models';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'libs-tree',
+  selector: 'sw-mat-tree',
   templateUrl: './sw-mat-tree.component.html',
   styleUrls: ['./sw-mat-tree.component.scss'],
   providers: [

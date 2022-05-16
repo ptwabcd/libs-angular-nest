@@ -20,8 +20,8 @@ export class SwMatIconComponent implements OnInit {
     this._color = value;
     this.isMatColor = value === 'primary' || this.color === 'accent' || this.color === 'warn';
   }
-  @Input() libsClass = {};
-  @Input() libsStyle = {};
+  @Input() swClass = {};
+  @Input() swStyle = {};
 
   constructor() { }
 

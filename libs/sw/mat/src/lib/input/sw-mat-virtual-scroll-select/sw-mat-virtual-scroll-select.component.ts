@@ -33,7 +33,7 @@ export class SwMatVirtualScrollSelectComponent extends SwBaseComponent implement
 
   errorState = false;
 
-  controlType = 'libs-virtual-scroll-select';
+  controlType = 'sw-mat-virtual-scroll-select';
 
   stateValue: number;
 

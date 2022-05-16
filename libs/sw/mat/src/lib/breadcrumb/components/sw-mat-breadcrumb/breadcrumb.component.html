@@ -7,7 +7,7 @@
             <ng-container [ngTemplateOutlet]="breadcrumbTitle"></ng-container>
           </a>
           <ng-template #breadcrumbTitle>
-            <sw-mat-icon [iconName]="breadcrumb.icon" [libsClass]="'m-r-4'"></sw-mat-icon>
+            <sw-mat-icon [iconName]="breadcrumb.icon" [swClass]="'m-r-4'"></sw-mat-icon>
             <span>{{ breadcrumb.title | translate }}</span>
           </ng-template>
         </div>

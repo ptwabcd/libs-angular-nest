@@ -8,7 +8,7 @@ import { SwMaterialIconType, SwMatIconCategories } from '../models';
 })
 export class SwMatIconService {
 
-  private libsAssetsPath = `libs/shared/src/assets/icons/material-icons-list.json`;
+  private swAssetsPath = `sw-mat/assets/icons/material-icons-list.json`;
   materialIcon: SwMatIconCategories;
   icons: Array<string> = [];
 
@@ -18,7 +18,7 @@ export class SwMatIconService {
   }
 
   init() {
-    return this.httpClient.get<SwMatIconCategories>(this.libsAssetsPath).pipe(tap(materialIcon => {
+    return this.httpClient.get<SwMatIconCategories>(this.swAssetsPath).pipe(tap(materialIcon => {
       this.materialIcon = materialIcon;
       materialIcon.categories.forEach(category => category.icons.forEach(icon => this.icons.push(icon.ligature)));
     })).toPromise();

@@ -15,8 +15,8 @@ import { SwMatGroupCheckboxComponent } from './input';
 import { SwMatI18nSelectionComponent } from './lang';
 import { SwMatNoDataComponent } from './utils';
 import { SwMatPrintContentComponent } from './print';
-import { ProcessLoadingComponent } from './loading';
-import { ProgressBarComponent } from './loading';
+import { SwMatProcessLoadingComponent } from './loading';
+import { SwMatProgressBarComponent } from './loading';
 import { SwMatTableComponent } from './table';
 import { SwMatTimeSelectorComponent } from './input';
 import { SwMatTreeComponent } from './tree';
@@ -26,8 +26,8 @@ import { SwMatFileUploadDirective } from './upload';
 import { SwMatExpandTableDirective } from './table';
 import { MaterialModule } from './modules';
 import { SwNgModule } from 'sw-ng';
-import { SwMatDialogService } from './utils/services/sw-mat-dialog.service';
-import { SwMatUploadService } from './upload/services/sw-mat-upload.service';
+import { SwMatDialogService } from './utils';
+import { SwMatUploadService } from './upload';
 import { SortablejsModule } from 'ngx-sortablejs';
 
 const COMPONENTS = [
@@ -37,8 +37,8 @@ const COMPONENTS = [
   SwMatI18nSelectionComponent,
   SwMatNoDataComponent,
   SwMatPrintContentComponent,
-  ProcessLoadingComponent,
-  ProgressBarComponent,
+  SwMatProcessLoadingComponent,
+  SwMatProgressBarComponent,
   SwMatTableComponent,
   SwMatTimeSelectorComponent,
   SwMatTreeComponent,

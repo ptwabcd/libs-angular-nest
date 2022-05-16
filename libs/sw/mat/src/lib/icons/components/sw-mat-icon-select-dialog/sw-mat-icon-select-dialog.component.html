@@ -30,7 +30,7 @@
     </mat-form-field>
     <div fxLayoutAlign="center center">
       <ng-container *ngIf="iconFormControl.value">
-        <sw-mat-icon [size]="120" color="primary" [libsStyle]="{'color': 'red'}"
+        <sw-mat-icon [size]="120" color="primary" [swStyle]="{'color': 'red'}"
                        [iconName]="iconTypeFormControl.value === ICON_TYPE.MAT ? iconFormControl.value : ('fa-' + iconFormControl.value)">
         </sw-mat-icon>
       </ng-container>

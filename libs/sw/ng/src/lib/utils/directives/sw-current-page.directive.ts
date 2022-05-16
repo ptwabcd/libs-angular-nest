@@ -1,14 +1,14 @@
 import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, takeUntil } from 'rxjs/operators';
-import { SwBaseComponent } from '../models/sw-base-component';
+import { SwBaseComponent } from '../models';
 
 @Directive({
   selector: '[swCurrentPage]'
 })
 export class SwCurrentPageDirective extends SwBaseComponent implements OnInit {
   // # 後面的url
-  @Input('libsCurrentPage') libsCurrentPage: string | Array<string>;
+  @Input('swCurrentPage') swCurrentPage: string | Array<string>;
 
   constructor(
     private router: Router,
@@ -35,8 +35,8 @@ export class SwCurrentPageDirective extends SwBaseComponent implements OnInit {
   }
 
   isIncludeCurrentPage() {
-    const libsCurrentPage = (typeof this.libsCurrentPage === 'string') ? [this.libsCurrentPage] : this.libsCurrentPage;
-    return libsCurrentPage.filter(page => this.router.url === page).length > 0;
+    const swCurrentPage = (typeof this.swCurrentPage === 'string') ? [this.swCurrentPage] : this.swCurrentPage;
+    return swCurrentPage.filter(page => this.router.url === page).length > 0;
   }
 
 }

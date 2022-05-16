@@ -10,7 +10,7 @@ export class SwCounterDirective implements OnChanges, OnDestroy {
   private _counterSource$ = new Subject<any>();
   private _subscription = Subscription.EMPTY;
 
-  @Input() libsCounter: number;
+  @Input() swCounter: number;
   @Input() interval: number;
   @Output() value = new EventEmitter<number>();
 
@@ -27,7 +27,7 @@ export class SwCounterDirective implements OnChanges, OnDestroy {
   }
 
   ngOnChanges() {
-    this._counterSource$.next({ count: this.libsCounter, interval: this.interval });
+    this._counterSource$.next({ count: this.swCounter, interval: this.interval });
   }
 
   ngOnDestroy() {

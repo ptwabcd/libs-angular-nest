@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SwThemeModule } from './theme';
 import { SwI18nModule } from './i18n';
 import { SwUiKitsModule } from './ui-kits';
-import { SwUtilsModule } from './utils/sw-utils.module';
+import { SwUtilsModule } from './utils';
 
 @NgModule({
   imports: [CommonModule],

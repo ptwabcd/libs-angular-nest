@@ -75,15 +75,15 @@
 }
 
 .el-underline-table {
-  @include libs-underline-table-attr(100px);
+  @include sw-underline-table-attr(100px);
 }
 
 .el-underline-warn-table {
-  @include libs-underline-table-attr(100px);
+  @include sw-underline-table-attr(100px);
 }
 
 .el-underline-table.seven-text {
-  @include libs-underline-table-attr(130px);
+  @include sw-underline-table-attr(130px);
 }
 
 .el-transparent-hr {
@@ -95,13 +95,13 @@
 
 .el-border-list {
   li {
-    @extend %libs-border-list-li;
+    @extend %sw-border-list-li;
   }
 }
 
 .el-tag-list {
   li {
-    @extend %libs-border-list-li;
+    @extend %sw-border-list-li;
     -moz-border-radius: 0 4px 4px 0;
     -webkit-border-radius: 0 4px 4px 0;
     border-radius: 0 4px 4px 0;
