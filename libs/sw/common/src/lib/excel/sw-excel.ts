@@ -98,7 +98,8 @@ export class Excel {
       excelColumns.forEach((column) => {
         let row = new SwStr2Obj().transform(data, column.columnKey);
         if (column.type === SwColumnType.NUMBER) {
-          row = row.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+          const regExp = new RegExp('\\B(?<!\\.\\d*)(?=(\\d{3})+(?!\\d))', 'g');
+          row = row.replace(regExp, ",");
         }
         rowArray.push(row);
       });

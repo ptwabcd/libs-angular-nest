@@ -37,7 +37,7 @@ export class SwDate {
     if (move === null) {
       return moment(date).format(this.MONTH_FORMAT);
     } else {
-      moment().subtract(move, 'months').format(this.MONTH_FORMAT);
+      return moment().subtract(move, 'months').format(this.MONTH_FORMAT);
     }
   }
 

@@ -12,7 +12,8 @@ export class SwNl2BrPipe implements PipeTransform {
   transform(value: string): any {
     let result;
     if (value) {
-      result = value.replace(/(?:\r\n|\r|\n)/g, '<br />');
+      const regExp = new RegExp('(?:\\r\\n|\\r|\\n)', 'g');
+      result = value.replace(regExp, '<br />');
       result = this.sanitizer.bypassSecurityTrustHtml(result);
     }
 
