@@ -8,7 +8,7 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import { takeUntil } from 'rxjs/operators';
-import { SwBaseComponent } from '../../../../utils/models/sw-base-component';
+import { SwBaseComponent } from '../../../../utils';
 import { SwComponentData } from '../../../table';
 
 @Component({
@@ -32,18 +32,12 @@ export class SwDynamicComponent extends SwBaseComponent implements OnInit {
     data.providers.forEach((provider) => {
       providers.push(provider);
     });
-    // providers.push({
-    //   provide: data.dataInjectionToken,
-    //   useValue: data.data
-    // });
-
-    const resolvedProviders = Injector.create(providers);
 
     const componentFactory = this.resolver.resolveComponentFactory(data.component);
 
     const viewContainerRef = this.dynamicComponentContainer;
     viewContainerRef.clear();
-    const componentRef = viewContainerRef.createComponent(componentFactory, null, resolvedProviders);
+    const componentRef = viewContainerRef.createComponent(componentFactory);
 
     Object.keys(data.inputData).forEach((key) => {
       componentRef.instance[key] = data.inputData[key];

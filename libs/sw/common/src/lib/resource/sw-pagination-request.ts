@@ -9,8 +9,8 @@ export class SwPaginationRequest {
   sortDirection?: SwSortDirection;
 
   constructor(data: SwPaginationRequestInterface ) {
-    this.currentPage = new SwCovert(data.currentPage).toValue(1);
-    this.perPage = new SwCovert(data.perPage).toValue(10);
+    this.currentPage = new SwCovert(data.currentPage).toNumber(1);
+    this.perPage = new SwCovert(data.perPage).toNumber(10);
     this.sortKey = data.sortKey;
     this.sortDirection = data.sortDirection;
   }

@@ -231,7 +231,7 @@ export class SwMatTableComponent extends SwBaseComponent implements OnInit, Cont
    * 使用 `Output` 裝飾器，裝飾觸發分頁與排序事件屬性
    * @output Pagination
    */
-  @Output() onPaginationChanged: EventEmitter<boolean> = new EventEmitter();
+  @Output() onPaginationChanged: EventEmitter<SwPagination> = new EventEmitter();
 
   /**
    * 使用 `Output` 裝飾器，裝飾觸發row移動屬性
@@ -504,7 +504,7 @@ export class SwMatTableComponent extends SwBaseComponent implements OnInit, Cont
     this.rows['data'] = [];
     this.pagination.currentPage = event.pageIndex + 1;
     this.pagination.perPage = event.pageSize;
-    this.onPaginationChanged.emit(true);
+    this.onPaginationChanged.emit(this.pagination);
   }
 
   /**
@@ -516,7 +516,7 @@ export class SwMatTableComponent extends SwBaseComponent implements OnInit, Cont
     this.rows['data'] = [];
     this.pagination.sortKey = event.active;
     this.pagination.sortDirection = event.direction as SwSortDirection;
-    this.onPaginationChanged.emit(true);
+    this.onPaginationChanged.emit(this.pagination);
   }
 
 

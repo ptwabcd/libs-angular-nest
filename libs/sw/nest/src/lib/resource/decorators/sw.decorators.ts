@@ -22,7 +22,7 @@ export const SwCusBody = createParamDecorator((data, ctx: ExecutionContext) => {
 export const SwCusQuery = createParamDecorator((data, ctx: ExecutionContext) => {
   const req = ctx.switchToHttp().getRequest();
   Object.keys(req.query).forEach(key => {
-    req.query[key] = new SwCovert(req.body[key]).toValue();
+    req.query[key] = new SwCovert(req.query[key]).toValue();
   });
   return new data(req.query);
 });

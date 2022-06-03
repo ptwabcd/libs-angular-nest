@@ -1,0 +1,15 @@
+<mat-card class="m-b-16" fxLayout="row" fxLayoutAlign="end center">
+  <button mat-mini-fab color="primary" (click)="openModifyModuleMenuDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-card>
+
+<mat-card>
+  <mat-form-field class="w-full">
+    <input matInput placeholder="請輸入要查詢的選單標題">
+  </mat-form-field>
+  <sw-container [resolved]="data$ && data$.$resolved" [error]="data$ && data$.$error">
+    <sw-mat-table [columns]="columns" [rows]="rows" [minWidth]="800" [enableAdjustColumn]="true" [pagination]="pagination"
+      (onPaginationChanged)="getModuleMenuList($event)"></sw-mat-table>
+  </sw-container>
+</mat-card>

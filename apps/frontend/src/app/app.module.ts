@@ -15,6 +15,7 @@ import {
 import { ngxLoadingAnimationTypes, NgxLoadingModule } from 'ngx-loading';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@angular/flex-layout';
+import { MenuManagerModule } from '@feature/menu-manager/menu-manager.module';
 
 // config
 export function configFactory(http: HttpClient): SwConfigLoader {
@@ -60,6 +61,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       useFactory: (configFactory),
       deps: [HttpClient]
     }),
+    MenuManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

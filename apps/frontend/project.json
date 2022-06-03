@@ -20,9 +20,16 @@
             "glob": "**/*",
             "input": "libs/sw/ng/src/assets",
             "output": "./libs/sw/ng/src/assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/sw/mat/src/assets",
+            "output": "./libs/sw/mat/src/assets"
           }
         ],
-        "styles": ["apps/frontend/src/styles.css"],
+        "styles": [
+          "apps/frontend/src/assets/styles/styles.scss"
+        ],
         "scripts": [],
         "allowedCommonJsDependencies": [
           "exceljs"

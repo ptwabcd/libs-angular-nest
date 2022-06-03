@@ -1,0 +1,9 @@
+@use '@angular/material' as mat;
+@include mat.core();
+$default-theme: mat.define-light-theme(mat.define-palette($primary), mat.define-palette($accent), mat.define-palette($warn));
+$primary: map-get($default-theme, primary);
+$accent: map-get($default-theme, accent);
+$warn: map-get($default-theme, warn);
+$foreground: map-get($default-theme, foreground);
+
+@include material-ui-kits-element($default-theme);
