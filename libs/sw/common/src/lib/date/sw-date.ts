@@ -266,4 +266,16 @@ export class SwDate {
     };
   }
 
+  getMoment(date: Date) {
+    return moment(date);
+  }
+
+  getWeekday(date = new Date()) {
+    return moment(date).weekday();
+  }
+
+  getIsoWeekday(date = new Date()) {
+    return moment(date).isoWeekday();
+  }
+
 }
