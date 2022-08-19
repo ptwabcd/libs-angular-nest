@@ -2,7 +2,7 @@
 <mat-nav-list>
   <a mat-list-item (click)="fileInput.click()">
     <mat-icon mat-list-icon color="primary">image</mat-icon>
-    <input #fileInput type="file" [hidden]="true" sharedFileUpload (getDataUrl)="dismiss($event[0], formControl.value[0])" [formControl]="formControl">
+    <input #fileInput type="file" [hidden]="true" swMatFileUpload (getDataUrl)="dismiss($event[0], formControl.value[0])" [formControl]="formControl">
     <span mat-line>{{ 'UPLOAD_AVATAR' | translate }}</span>
   </a>
   <a mat-list-item *ngIf="data.currentFile" (click)="dismiss('', null)">
