@@ -1,12 +1,12 @@
 import { SwFilterRequestInterface, SwPaginationRequestInterface } from './interface';
 import { SwPaginationRequest } from './sw-pagination-request';
-import { SwBaseFilterRequest } from './sw-base-filter-request';
+import { SwCovert } from '../covert';
 
 export class SwFilterRequest extends SwPaginationRequest {
   keyword?: string;
 
   constructor(data: SwFilterRequestInterface & SwPaginationRequestInterface) {
     super(data);
-    new SwBaseFilterRequest(data);
+    this.keyword = new SwCovert(data.keyword).toValue();
   }
 }

@@ -1,6 +1,6 @@
 import { SwPaginationRequest } from './sw-pagination-request';
-import { SwBaseDateRequest } from './sw-base-date-request';
 import { SwDateRequestInterface, SwPaginationRequestInterface } from './interface';
+import { SwCovert } from '../covert';
 
 export class SwDateRequest extends SwPaginationRequest {
   startDate: Date;
@@ -8,6 +8,7 @@ export class SwDateRequest extends SwPaginationRequest {
 
   constructor(data: SwDateRequestInterface & SwPaginationRequestInterface) {
     super(data);
-    new SwBaseDateRequest(data);
+    this.startDate = new SwCovert(data.startDate).toDate();
+    this.endDate = new SwCovert(data.endDate).toDate();
   }
 }
