@@ -11,6 +11,6 @@ export class SwCommonRequest extends SwPaginationRequest {
     super(data);
     this.startDate = new SwCovert(data.startDate).toDate();
     this.endDate = new SwCovert(data.endDate).toDate();
-    this.keyword = new SwCovert(data.keyword).toValue();
+    this.keyword = new SwCovert(data.keyword).toValue('');
   }
 }

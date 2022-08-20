@@ -7,6 +7,6 @@ export class SwFilterRequest extends SwPaginationRequest {
 
   constructor(data: SwFilterRequestInterface & SwPaginationRequestInterface) {
     super(data);
-    this.keyword = new SwCovert(data.keyword).toValue();
+    this.keyword = new SwCovert(data.keyword).toValue('');
   }
 }

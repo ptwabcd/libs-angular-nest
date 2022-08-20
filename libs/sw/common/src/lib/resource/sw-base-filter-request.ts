@@ -5,6 +5,6 @@ export class SwBaseFilterRequest {
   keyword: string;
 
   constructor(data: SwFilterRequestInterface) {
-    this.keyword = new SwCovert(data.keyword).toValue();
+    this.keyword = new SwCovert(data.keyword).toValue('');
   }
 }
