@@ -3,13 +3,16 @@ import { takeUntil } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { SwBaseComponent } from 'sw-ng';
 import { SwMatUploadToolDialogComponent } from '../components';
-import { SwUploadToolConfig, SwUploadToolResult } from 'sw-common';
+import { SwUploadFileType, SwUploadToolConfig, SwUploadToolResult } from 'sw-common';
 
 @Directive({
   selector: '[swMatOpenUploadToolDialog]'
 })
 export class SwMatOpenUploadToolDialogDirective extends SwBaseComponent {
 
+  @Input() accept: string;
+  @Input() fileSize: number;
+  @Input() fileType: Array<string>;
   @Input() currentFile: string;
   @Input() originalFile: string;
 
@@ -20,6 +23,9 @@ export class SwMatOpenUploadToolDialogDirective extends SwBaseComponent {
     this.dialog.open<SwMatUploadToolDialogComponent, SwUploadToolConfig, SwUploadToolResult>(SwMatUploadToolDialogComponent, {
       ...this.toolDialogConfig,
       data: {
+        accept: this.accept ?? '*',
+        fileSize: this.fileSize ?? 10 * 1024 * 1024,
+        fileType: this.fileType ?? new SwUploadFileType().ANY_FORMAT,
         currentFile: this.currentFile,
         originalFile: this.originalFile
       }

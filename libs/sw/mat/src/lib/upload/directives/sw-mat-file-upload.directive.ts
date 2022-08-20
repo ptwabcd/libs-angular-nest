@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
@@ -16,7 +16,7 @@ import { NumberPrototype } from 'sw-common';
     }
   ]
 })
-export class SwMatFileUploadDirective implements ControlValueAccessor {
+export class SwMatFileUploadDirective implements OnInit, ControlValueAccessor {
   onChange: (value: File | FileList | string | Blob | Array<Blob>) => void;
   onTouched: () => {};
 
@@ -36,6 +36,12 @@ export class SwMatFileUploadDirective implements ControlValueAccessor {
   constructor(
     private uploadService: SwMatUploadService
   ) { }
+
+
+  ngOnInit(): void {
+    this.fileSize = this.fileSize ?? 10 * 1024 * 1024;
+    this.fileType = this.fileType ?? new SwUploadFileType().ANY_FORMAT;
+  }
 
   @HostListener('change', ['$event.target.files'])
   onInput(files: FileList) {
